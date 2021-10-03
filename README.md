@@ -21,7 +21,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] Added a description character cap
+- [X] Added a description character cap
 
 ## Video Walkthrough
 
