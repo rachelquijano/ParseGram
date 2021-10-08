@@ -3,9 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/drawable/custom_input.xml" value="0.3671875" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/drawable/round_outline.xml" value="0.3671875" />
         <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/activity_signup.xml" value="0.32760416666666664" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/fragment_blank.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/fragment_compose.xml" value="0.32395833333333335" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/fragment_home.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/fragment_posts.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/fragment_profile.xml" value="0.3446557971014493" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/layout/item_post.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.2916666666666667" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3671875" />
+        <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18796296296296297" />
         <entry key="..\:/Users/Rachel/AndroidStudioProjects/ParseGram/app/src/main/res/xml/fileprovider.xml" value="0.35104166666666664" />
       </map>
     </option>

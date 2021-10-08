@@ -13,4 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="LogInButton" parent="ThemeOverlay.AppCompat">
+        <item name="colorPrimary">#3F729B</item>
+    </style>
+
 </resources>
