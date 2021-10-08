@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -21,6 +20,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -50,12 +51,12 @@ public class ComposeFragment extends Fragment {
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
     public static final int MAX_DESCRIPTION_LENGTH = 200;
     private EditText etDescription;
-    private Button btnCaptureImage;
     private Button btnSubmit;
     private TextView tvCounter;
     private ImageView ivPostImage;
     private File photoFile;
     public String fileName = "photoFile.jpg";
+    private BottomNavigationView bottomNavigationView;
 
 
     @Nullable
@@ -68,10 +69,10 @@ public class ComposeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         etDescription = view.findViewById(R.id.etDescription);
-        btnCaptureImage = view.findViewById(R.id.btnCaptureImage);
         btnSubmit = view.findViewById(R.id.btnSubmit);
         ivPostImage = view.findViewById(R.id.ivPostImage);
         tvCounter = view.findViewById(R.id.tvCounter);
+        bottomNavigationView = (BottomNavigationView) getActivity().findViewById(R.id.bottom_navigation);
 
         etDescription.addTextChangedListener(new TextWatcher() {
             @Override
@@ -95,14 +96,8 @@ public class ComposeFragment extends Fragment {
             }
         });
 
-        btnCaptureImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        launchCamera();
 
-                Log.i(TAG, "Launching Camera");
-                launchCamera();
-            }
-        });
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,7 +149,9 @@ public class ComposeFragment extends Fragment {
                 // Load the taken image into a preview
                 ivPostImage.setImageBitmap(takenImage);
             } else { // Result was a failure
-                Toast.makeText(getContext(), "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+                Fragment fragment = new PostsFragment();
+                getFragmentManager().beginTransaction().replace(R.id.flContainer, fragment).commit();
+                bottomNavigationView.setSelectedItemId(R.id.action_home);
             }
         }
 
@@ -193,6 +190,7 @@ public class ComposeFragment extends Fragment {
                 ivPostImage.setImageResource(0);
                 Fragment fragment = new PostsFragment();
                 getFragmentManager().beginTransaction().replace(R.id.flContainer, fragment).commit();
+                bottomNavigationView.setSelectedItemId(R.id.action_home);
 
             }
         });

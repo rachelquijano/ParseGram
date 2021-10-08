@@ -86,4 +86,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:text="This is a picture of me, hey." />
+
+    <TextView
+        android:id="@+id/tvCreatedAt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Two days ago"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp" />
 </LinearLayout>
