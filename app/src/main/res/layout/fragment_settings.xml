@@ -5,18 +5,95 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal">
 
+    <EditText
+        android:id="@+id/etChangeUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="New Username"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp" />
+
+    <Button
+        android:id="@+id/btnChangeUsername"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Change Username"
+        android:theme="@style/LogInButton"/>
+
+    <EditText
+        android:id="@+id/etChangePassword"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="New Password"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp" />
+
+    <Button
+        android:id="@+id/btnChangePassword"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:theme="@style/LogInButton"/>
+
+    <EditText
+        android:id="@+id/etChangeName"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="New Name"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp" />
+
     <Button
         android:id="@+id/btnChangeName"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:text="Change Name" />
+        android:text="Change Name"
+        android:theme="@style/LogInButton"/>
+
+    <EditText
+        android:id="@+id/etChangeDesciption"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="New Description"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp" />
+
+    <Button
+        android:id="@+id/btnChangeDescription"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Change Description"
+        android:theme="@style/LogInButton"/>
+
+    <Button
+        android:id="@+id/btnChangeProfilePicture"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Change Profile Picture"
+        android:theme="@style/LogInButton"/>
+
 
     <Button
         android:id="@+id/btnLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:text="Log Out" />
+        android:layout_marginTop="50dp"
+        android:text="Log Out"
+        android:theme="@style/LogInButton"/>
+
+
 
 </LinearLayout>
