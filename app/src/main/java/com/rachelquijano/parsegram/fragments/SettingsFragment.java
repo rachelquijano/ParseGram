@@ -1,4 +1,4 @@
-package com.rachelquijano.parsegram;
+package com.rachelquijano.parsegram.fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,6 +19,8 @@ import androidx.fragment.app.Fragment;
 import com.parse.Parse;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.rachelquijano.parsegram.LoginActivity;
+import com.rachelquijano.parsegram.R;
 
 import java.io.File;
 import java.net.URI;

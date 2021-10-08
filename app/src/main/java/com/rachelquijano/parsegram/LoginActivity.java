@@ -52,34 +52,17 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(i);
+                finish();
                 Log.i(TAG, "onClick sign up button");
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
-                signUpUser(username, password);
+//                String username = etUsername.getText().toString();
+//                String password = etPassword.getText().toString();
+//                signUpUser(username, password);
             }
         });
     }
 
-    private void signUpUser(String username, String password) {
-        Log.i(TAG, "Attempting to create user " + username);
-        ParseUser user = new ParseUser();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.signUpInBackground(new SignUpCallback() {
-            public void done(ParseException e) {
-                if (e == null) {
-                    // Hooray! Let them use the app now.
-                    Toast.makeText(LoginActivity.this, "Account creation successful! Please log in", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Sign up didn't succeed. Look at the ParseException
-                    // to figure out what went wrong
-                    Log.e(TAG, "Issue with sign up!", e);
-                    Toast.makeText(LoginActivity.this, "Issue with sign up!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-            }
-        });
-    }
 
     private void loginUser(String username, String password) {
         Log.i(TAG, "Attempting to login user " + username);
@@ -102,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-    private void goMainActivity() {
+    protected void goMainActivity() {
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
         finish();
