@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.rachelquijano.parsegram.Post;
 import com.rachelquijano.parsegram.PostsAdapter;
 import com.rachelquijano.parsegram.R;
@@ -26,7 +27,7 @@ import java.util.List;
 public class PostsFragment extends Fragment {
 
     public static final String TAG = "PostsFragment";
-    private RecyclerView rvPosts;
+    protected RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> allPosts;
 
@@ -47,14 +48,15 @@ public class PostsFragment extends Fragment {
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         queryPosts();
-
-
     }
 
     protected void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.setLimit(20);
+        if(getParentFragment() != null)
+            query.whereEqualTo(Post.KEY_USER, ParseUser.getCurrentUser());
+
         query.addDescendingOrder(Post.KEY_CREATED_AT);
         query.findInBackground(new FindCallback<Post>() {
             @Override
