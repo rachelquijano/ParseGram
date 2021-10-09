@@ -20,8 +20,10 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 import com.rachelquijano.parsegram.LoginActivity;
 import com.rachelquijano.parsegram.R;
 
@@ -31,6 +33,9 @@ import java.net.URI;
 public class SettingsFragment extends Fragment {
 
     private Button btnLogOut;
+    private Button btnChangePicture;
+    private File photoFile;
+    public String fileName = "photoFile.jpg";
 
     private EditText etChangeUsername;
     private Button btnChangeUsername;
@@ -49,12 +54,31 @@ public class SettingsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch(requestCode){
+            case 1:
+                if(resultCode==getActivity().RESULT_OK){
+                    String path = data.getData().getPath();
+                    photoFile = new File(path);
+                    ParseFile file = new ParseFile(photoFile);
+                    ParseUser.getCurrentUser().put("profilePhoto", file);
+                    ParseUser.getCurrentUser().saveInBackground();
+                    goProfileFragment();
+                }
+        }
+    }
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         bottomNavigationView = (BottomNavigationView) getActivity().findViewById(R.id.bottom_navigation);
         btnLogOut = view.findViewById(R.id.btnLogOut);
+        btnChangePicture = view.findViewById(R.id.btnChangeProfilePicture);
         btnChangeUsername = view.findViewById(R.id.btnChangeUsername);
         etChangeUsername = view.findViewById(R.id.etChangeUsername);
         btnChangePassword = view.findViewById(R.id.btnChangePassword);
@@ -63,6 +87,16 @@ public class SettingsFragment extends Fragment {
         etChangeName = view.findViewById(R.id.etChangeName);
         btnChangeDescription = view.findViewById(R.id.btnChangeDescription);
         etChangeDescription = view.findViewById(R.id.etChangeDesciption);
+
+        btnChangePicture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fileIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                fileIntent.setType("*/*");
+                startActivityForResult(fileIntent, 1);
+            }
+        });
+
 
         btnChangeUsername.setOnClickListener(new View.OnClickListener() {
             @Override

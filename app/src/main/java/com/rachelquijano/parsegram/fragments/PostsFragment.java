@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,6 +21,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.rachelquijano.parsegram.Post;
 import com.rachelquijano.parsegram.PostsAdapter;
+import com.rachelquijano.parsegram.PostsProfileAdapter;
 import com.rachelquijano.parsegram.R;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class PostsFragment extends Fragment {
     public static final String TAG = "PostsFragment";
     protected RecyclerView rvPosts;
     protected PostsAdapter adapter;
+    protected PostsProfileAdapter profileAdapter;
     protected List<Post> allPosts;
     private TextView tvNoPosts;
 
@@ -47,9 +50,18 @@ public class PostsFragment extends Fragment {
         tvNoPosts = view.findViewById(R.id.tvNoPosts);
         rvPosts = view.findViewById(R.id.rvPosts);
         allPosts = new ArrayList<>();
-        adapter = new PostsAdapter(getContext(), allPosts);
-        rvPosts.setAdapter(adapter);
-        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        if(getParentFragment() != null){
+            profileAdapter = new PostsProfileAdapter(getContext(), allPosts);
+            rvPosts.setAdapter(profileAdapter);
+            rvPosts.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        }else{
+            adapter = new PostsAdapter(getContext(), allPosts);
+            rvPosts.setAdapter(adapter);
+            rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+        }
+
         queryPosts();
     }
 
@@ -76,7 +88,11 @@ public class PostsFragment extends Fragment {
                     return;
                 }
                 allPosts.addAll(posts);
-                adapter.notifyDataSetChanged();
+                if(getParentFragment() != null){
+                    profileAdapter.notifyDataSetChanged();
+                }else{
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
     }

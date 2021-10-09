@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new ProfileFragment();
                         break;
                     case R.id.action_settings:
-                        Toast.makeText(MainActivity.this, "Settings", Toast.LENGTH_SHORT).show();
                         fragment = new SettingsFragment();
                         break;
                     default:
