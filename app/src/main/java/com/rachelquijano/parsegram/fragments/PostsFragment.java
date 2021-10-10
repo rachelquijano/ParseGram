@@ -65,7 +65,7 @@ public class PostsFragment extends Fragment {
         queryPosts();
     }
 
-    protected void queryPosts() {
+    private void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
         query.setLimit(20);

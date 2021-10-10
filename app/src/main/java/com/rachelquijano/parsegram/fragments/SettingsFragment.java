@@ -113,7 +113,6 @@ public class SettingsFragment extends Fragment {
                 ParseUser.getCurrentUser().setUsername(name);
                 ParseUser.getCurrentUser().saveInBackground();
                 Toast.makeText(getContext(), "Username updated successfully!", Toast.LENGTH_SHORT).show();
-                goProfileFragment();
             }
         });
         
@@ -132,7 +131,6 @@ public class SettingsFragment extends Fragment {
                 ParseUser.getCurrentUser().setPassword(password);
                 ParseUser.getCurrentUser().saveInBackground();
                 Toast.makeText(getContext(), "Password updated successfully!", Toast.LENGTH_SHORT).show();
-                goProfileFragment();
             }
         });
 
@@ -151,7 +149,6 @@ public class SettingsFragment extends Fragment {
                 ParseUser.getCurrentUser().put("name", name);
                 ParseUser.getCurrentUser().saveInBackground();
                 Toast.makeText(getContext(), "Name updated successfully!", Toast.LENGTH_SHORT).show();
-                goProfileFragment();
             }
         });
 
@@ -162,7 +159,6 @@ public class SettingsFragment extends Fragment {
                 ParseUser.getCurrentUser().put("description", description);
                 ParseUser.getCurrentUser().saveInBackground();
                 Toast.makeText(getContext(), "Description updated successfully!", Toast.LENGTH_SHORT).show();
-                goProfileFragment();
             }
         });
 
